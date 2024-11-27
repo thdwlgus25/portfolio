@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layouts/DefaultLayout}">
+<head>
+  <meta charset="UTF-8">
+  <title>Write</title>
+  <!-- 최신 Summernote CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote.min.css" rel="stylesheet">
+  <!-- 최신 Summernote JS -->
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/lang/summernote-ko-KR.min.js"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/my/Write.css">
+  <!-- js-->
+  <script type="text/javascript" th:src="@{/js/my/Summernote.js}"></script>
+  <script type="text/javascript" th:src="@{/js/my/Write.js}"></script>
+</head>
+<body>
+<div layout:fragment="content" class="write-page">
+  <div class="write-header">
+    <h1>✏️ 포트폴리오 작성</h1>
+  </div>
+  <form class="write-form">
+    <!-- 제목 -->
+    <div class="write-group">
+      <label for="title">제목</label>
+      <input type="text" id="title" name="title" placeholder="제목을 입력하세요">
+    </div>
+
+    <!-- 카테고리 -->
+    <div class="write-group">
+      <label for="category">카테고리</label>
+      <select id="category" name="category">
+        <option value="">카테고리를 선택하세요</option>
+        <option value="backend">백엔드</option>
+        <option value="frontend">프론트엔드</option>
+        <option value="ai">AI</option>
+        <option value="devops">DevOps</option>
+        <option value="database">데이터베이스</option>
+      </select>
+    </div>
+
+    <!-- 작성자 -->
+    <div class="write-group">
+      <label for="author">작성자</label>
+      <input type="text" id="author" name="author" value="송지현" readonly>
+    </div>
+
+    <!-- 작성일 -->
+    <div class="write-group">
+      <label for="date">작성일자</label>
+      <input type="text" id="date" name="date" value="2024-11-25" readonly>
+    </div>
+
+    <!-- Summernote -->
+    <div class="write-group">
+      <label for="summernote">내용</label>
+      <textarea id="summernote" name="content"></textarea>
+    </div>
+
+    <!-- 버튼 컨테이너 -->
+    <div class="submit-container">
+      <button type="submit" class="submit-button"><i class="fas fa-pencil-alt"></i> 작성하기</button>
+      <a href="/myPortfolio" class="list-button"><i class="fas fa-list"></i> 목록가기</a>
+    </div>
+  </form>
+</div>
+</body>
+</html>

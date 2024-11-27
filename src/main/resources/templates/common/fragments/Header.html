@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div th:fragment="header">
+<header class="portfolio-header">
+    <div class="logo">
+        <a href="/">
+            <img th:src="@{/images/EchoWorks.png}" alt="EchoWorks Logo" class="logo-img">
+        </a>
+    </div>
+    <div class="social-center">
+        <a href="https://github.com/your-profile" target="_blank" class="social-link">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://velog.io/@your-profile" target="_blank" class="social-link">
+            <img src="/images/velog.png" alt="Velog" class="custom-icon velog-icon">
+        </a>
+        <a href="https://www.notion.so/your-profile" target="_blank" class="social-link">
+            <img src="/images/notion.png" alt="Notion" class="custom-icon notion-icon">
+        </a>
+    </div>
+    <div class="menu-profile">
+        <span id="welcome-text" class="welcome-message">
+            <i class="fas fa-smile-beam"></i> ___님, 어서오세요!
+        </span>
+        <button id="menu-button" class="menu-button">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-user-circle"></i>
+        </button>
+        <div id="dropdown" class="dropdown-menu">
+            <a href="/login" class="dropdown-item">Login</a>
+            <a href="#" class="dropdown-item">Logout</a>
+            <a href="/message" class="dropdown-item">Message</a>
+            <a href="/myProfile" class="dropdown-item">Profile</a>
+            <a href="/myPortfolio" class="dropdown-item">My Portfolio</a>
+            <a href="/totalPortfolio" class="dropdown-item">Take a look</a>
+        </div>
+    </div>
+</header>
+</div>
+</body>
+</html>

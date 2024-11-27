@@ -1,0 +1,85 @@
+/* 기본 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+/* 메시지 컨테이너 */
+.message-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* 맨 위로 정렬 */
+    align-items: center;
+    padding: 20px;
+    padding-top: 80px; /* 상단 여백 추가 */
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.message-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* 메시지 항목 */
+.message-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    position: relative;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.message-icon {
+    font-size: 2.5rem;
+    color: #17a2b8; /* 파란색 */
+}
+
+.message-content {
+    flex-grow: 1;
+}
+
+.message-content p {
+    margin: 5px 0;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.message-date {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* 닫기 버튼 */
+.close-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover {
+    color: #333;
+}
+
+/* 화면 전체를 채우는 메시지 */
+.message-container.fullscreen {
+    justify-content: flex-start;
+    padding-top: 80px;
+}
+
+.message-item.full {
+    width: calc(100% - 40px);
+    max-width: none;
+}

@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Dongle&family=Jua&display=swap');
+
+/* MainPage 전용 스타일 */
+.main-page {
+    font-family: 'Jua', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff0f0; /* 부드러운 핑크 배경 */
+    min-height: 100vh; /* 페이지 전체 높이 */
+    margin: 0;
+    padding: 0;
+}
+
+/* Hero Section 스타일 */
+.main-page .hero-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px; /* 패딩을 키워 내부 여백 증가 */
+    background-color: #ffffff; /* 카드 스타일 */
+    border-radius: 30px; /* 둥근 모서리 */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* 그림자 */
+    max-width: 1000px; /* 카드 너비를 1000px로 확대 */
+    margin: 40px auto; /* 상하 여백 증가 */
+    position: relative;
+}
+
+/* 배경 그래픽 요소 */
+.main-page .hero-section::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background-color: #ffd6d6;
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.main-page .hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: -120px;
+    right: -60px;
+    width: 250px;
+    height: 250px;
+    background-color: #ffc9c9;
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+/* 메인 타이틀 */
+.main-page .hero-title {
+    font-size: 3.5rem; /* 글씨 크기 확대 */
+    font-weight: bold;
+    color: #ff6f61;
+    margin-bottom: 30px; /* 여백 조정 */
+}
+
+/* 강조 텍스트 - 퍼뜨리는 애니메이션 */
+.main-page .hero-highlight {
+    font-size: 2rem; /* 강조 텍스트 크기 */
+    color: #ff8a8a; /* 텍스트 색상 */
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(255, 138, 138, 0.5), 0 0 20px rgba(255, 138, 138, 0.4);
+    animation: pulseGlow 3s infinite ease-in-out, pulseSize 3s infinite ease-in-out;
+}
+
+/* 서브 타이틀 */
+.main-page .hero-subtitle {
+    font-size: 1.4rem; /* 서브 타이틀 크기 확대 */
+    color: #666666;
+    line-height: 2; /* 줄 간격 확대 */
+    margin-bottom: 50px; /* 여백 조정 */
+}
+
+/* 버튼 스타일 */
+.main-page .cta-button {
+    background-color: #ff6f61;
+    color: white;
+    font-size: 1.3rem; /* 버튼 글씨 크기 확대 */
+    font-weight: bold;
+    padding: 20px 50px; /* 버튼 패딩 확대 */
+    border: none;
+    border-radius: 30px; /* 버튼 둥근 모서리 조정 */
+    box-shadow: 0 6px 15px rgba(255, 111, 97, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.main-page .cta-button:hover {
+    background-color: #ff8577;
+    box-shadow: 0 8px 20px rgba(255, 111, 97, 0.6);
+    transform: translateY(-5px);
+}
+
+/* 애니메이션 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 글로우 애니메이션 */
+@keyframes pulseGlow {
+    0% {
+        text-shadow: 0 0 10px rgba(255, 138, 138, 0.5), 0 0 20px rgba(255, 138, 138, 0.4);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(255, 138, 138, 0.7), 0 0 40px rgba(255, 138, 138, 0.6);
+    }
+    100% {
+        text-shadow: 0 0 10px rgba(255, 138, 138, 0.5), 0 0 20px rgba(255, 138, 138, 0.4);
+    }
+}
+
+/* 크기 변화 애니메이션 */
+@keyframes pulseSize {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05); /* 약간 확대 */
+    }
+}

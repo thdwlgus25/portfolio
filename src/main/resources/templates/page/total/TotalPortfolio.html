@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layouts/DefaultLayout}">
+<head>
+    <meta charset="UTF-8">
+    <title>total Profile</title>
+    <!-- css-->
+    <link rel="stylesheet" href="/css/total/TotalPortfolio.css">
+    <!-- js-->
+    <script type="text/javascript" th:src="@{/js/total/TotalPortfolio.js}"></script>
+</head>
+<body>
+<div layout:fragment="content">
+
+    <!-- 상단 네비게이션 -->
+    <header class="navigation-bar">
+        <div class="category-list">
+            <button class="category-button active"><i class="fas fa-code"></i> 백엔드</button>
+            <button class="category-button"><i class="fas fa-laptop-code"></i> 프론트엔드</button>
+            <button class="category-button"><i class="fas fa-brain"></i> AI</button>
+            <button class="category-button"><i class="fas fa-network-wired"></i> DevOps</button>
+            <button class="category-button"><i class="fas fa-database"></i> 데이터베이스</button>
+        </div>
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="창의적인 포트폴리오를 검색해보세요!">
+            <button class="search-button"><i class="fas fa-search"></i></button>
+        </div>
+    </header>
+
+    <section class="portfolio-grid">
+        <!-- 카드 1 -->
+        <div class="portfolio-card">
+            <img src="/images/image.jpg" alt="프로젝트 썸네일" class="thumbnail">
+            <h2 class="project-title">백엔드 프로젝트</h2>
+            <p class="project-info">
+                <i class="fas fa-folder"></i> 카테고리: 백엔드
+            </p>
+            <p class="project-info">
+                <i class="fas fa-calendar-alt"></i> 등록 날짜: 2024-01-01
+            </p>
+            <p class="project-info">
+                <i class="fas fa-user"></i> 작성자: 지현 송
+            </p>
+        </div>
+        <!-- 카드 2 -->
+        <div class="portfolio-card">
+            <img src="/images/image.jpg" alt="프로젝트 썸네일" class="thumbnail">
+            <h2 class="project-title">프론트엔드 프로젝트</h2>
+            <p class="project-info">
+                <i class="fas fa-folder"></i> 카테고리: 프론트엔드
+            </p>
+            <p class="project-info">
+                <i class="fas fa-calendar-alt"></i> 등록 날짜: 2023-12-15
+            </p>
+            <p class="project-info">
+                <i class="fas fa-user"></i> 작성자: 지현 송
+            </p>
+        </div>
+        <!-- 카드 3 -->
+        <div class="portfolio-card">
+            <img src="/images/image.jpg" alt="프로젝트 썸네일" class="thumbnail">
+            <h2 class="project-title">AI 기반 프로젝트</h2>
+            <p class="project-info">
+                <i class="fas fa-folder"></i> 카테고리: AI
+            </p>
+            <p class="project-info">
+                <i class="fas fa-calendar-alt"></i> 등록 날짜: 2024-02-01
+            </p>
+            <p class="project-info">
+                <i class="fas fa-user"></i> 작성자: 지현 송
+            </p>
+        </div>
+        <!-- 카드 4 -->
+        <div class="portfolio-card">
+            <img src="/images/image.jpg" alt="프로젝트 썸네일" class="thumbnail">
+            <h2 class="project-title">DevOps 프로젝트</h2>
+            <p class="project-info">
+                <i class="fas fa-folder"></i> 카테고리: DevOps
+            </p>
+            <p class="project-info">
+                <i class="fas fa-calendar-alt"></i> 등록 날짜: 2024-03-01
+            </p>
+            <p class="project-info">
+                <i class="fas fa-user"></i> 작성자: 지현 송
+            </p>
+        </div>
+        <div class="portfolio-card">
+            <img src="/images/image.jpg" alt="프로젝트 썸네일" class="thumbnail">
+            <h2 class="project-title">DevOps 프로젝트</h2>
+            <p class="project-info">
+                <i class="fas fa-folder"></i> 카테고리: DevOps
+            </p>
+            <p class="project-info">
+                <i class="fas fa-calendar-alt"></i> 등록 날짜: 2024-03-01
+            </p>
+            <p class="project-info">
+                <i class="fas fa-user"></i> 작성자: 지현 송
+            </p>
+        </div>
+    </section>
+</div>
+</body>
+</html>

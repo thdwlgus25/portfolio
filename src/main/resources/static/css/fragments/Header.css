@@ -1,0 +1,147 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* 페이지 전체 높이를 100%로 설정 */
+    display: flex;
+    flex-direction: column; /* Flexbox로 세로 정렬 */
+}
+
+.content {
+    flex: 1; /* 헤더와 푸터 사이를 채우는 역할 */
+}
+
+/* 헤더 스타일 */
+.portfolio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* 로고 */
+.logo-img {
+    height: 80px;
+    width: 80px;
+    display: block;
+}
+
+/* 드롭다운 메뉴 스타일 */
+.menu-profile {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 30px;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    min-width: 150px;
+    z-index: 1000;
+}
+
+.dropdown-item {
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+}
+
+.dropdown-item:hover {
+    background-color: #f7f7f7;
+}
+
+/* 드롭다운 활성화 */
+.dropdown-menu.show {
+    display: block;
+}
+
+.welcome-message {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #ff385c;
+    padding: 8px 15px;
+    border-radius: 20px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    transform: translateX(-50px);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* 아이콘과 텍스트 간격 */
+    animation: fadeIn 1.5s ease, bounce 3s infinite;
+}
+
+.welcome-message i {
+    font-size: 20px;
+    color: #ffd700; /* 아이콘 색상 */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.social-center {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* 아이콘 간 간격 */
+    margin: 20px 0; /* 상하 여백 */
+    transform: translateX(110px); /* 오른쪽으로 50px 이동 */
+}
+
+.social-link {
+    font-size: 50px; /* 아이콘 크기 */
+    color: #333; /* 기본 색상 */
+    transition: color 0.3s ease, transform 0.3s ease; /* 부드러운 효과 */
+    text-decoration: none; /* 링크 밑줄 제거 */
+}
+
+.social-link:hover {
+    color: #ff385c; /* 호버 시 강조 색상 */
+    transform: scale(1.2); /* 호버 시 확대 */
+}
+
+.velog-icon {
+    height: 45px; /* Velog 이미지를 원하는 크기로 */
+    width: auto;  /* 비율 유지 */
+    margin-top: -10px;
+}
+
+.notion-icon {
+    height: 50px; /* Velog 이미지를 원하는 크기로 */
+    width: auto;  /* 비율 유지 */
+    margin-top: -10px;
+}
+
+.social-link.github-icon {
+    font-size: 100px; /* 깃허브 아이콘만 크기 조정 */
+    margin-top: 5px;
+}

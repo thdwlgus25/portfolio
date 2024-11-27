@@ -1,0 +1,217 @@
+/* 기본 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* 전체 네비게이션 스타일 */
+.navigation-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* 카테고리 버튼 스타일 */
+.category-list {
+    display: flex;
+    gap: 15px;
+}
+
+.category-button {
+    background-color: #f8f9fa;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-button i {
+    color: #ff6f61;
+}
+
+.category-button:hover {
+    background-color: #ff6f61;
+    color: #fff;
+}
+
+.category-button.active {
+    background-color: #ff6f61;
+    color: #fff;
+}
+
+/* 검색바 스타일 */
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-input {
+    padding: 10px;
+    font-size: 0.9rem;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+    width: 300px;
+}
+
+.search-input::placeholder {
+    color: #aaa;
+}
+
+.search-button {
+    background-color: #ff6f61;
+    border: none;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #ff8577;
+}
+
+/* 그리드 스타일 */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 한 줄에 4개의 카드 */
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 카드 스타일 */
+.portfolio-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 썸네일 이미지 스타일 */
+.thumbnail {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0; /* 상단 둥근 모서리 */
+    margin-bottom: 15px;
+}
+
+/* 프로젝트 제목 */
+.project-title {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* 프로젝트 정보 */
+.project-info {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-info i {
+    margin-right: 8px;
+    color: #ff385c;
+}
+
+/* 기본 버튼 스타일 */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.edit-button,
+.delete-button {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.edit-button {
+    background-color: #6c63ff;
+    color: #fff;
+}
+
+.edit-button:hover {
+    background-color: #867aff;
+    box-shadow: 0 4px 8px rgba(108, 99, 255, 0.3);
+}
+
+.delete-button {
+    background-color: #ff6f61;
+    color: #fff;
+}
+
+.delete-button:hover {
+    background-color: #ff8577;
+    box-shadow: 0 4px 8px rgba(255, 111, 97, 0.3);
+}
+
+/* 작성하기 버튼 */
+.create-button {
+    position: fixed; /* 화면 고정 */
+    bottom: 20px; /* 화면 하단에서 20px 위 */
+    right: 20px; /* 화면 오른쪽에서 20px 왼쪽 */
+    background-color: #6c63ff;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(108, 99, 255, 0.3);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 1000; /* 다른 요소 위에 표시 */
+}
+
+.create-button i {
+    font-size: 1.5rem;
+}
+
+.create-button:hover {
+    background-color: #867aff;
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(108, 99, 255, 0.4);
+}

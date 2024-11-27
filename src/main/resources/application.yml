@@ -1,0 +1,21 @@
+spring:
+  config:
+    import: "optional:classpath:application-db.yml"
+
+  application:
+    name: portfolio
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  thymeleaf:
+    cache: false
+    check-template-location: true
+    prefix: classpath:/templates/
+    suffix: .html
+    enabled: true
+
+server:
+  port: 8080

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!--css-->
+    <link rel="stylesheet" type="text/css" href="/css/login/Login.css">
+    <!--로그인 js-->
+    <script type="text/javascript" th:src="@{/js/login/Login.js}"></script>
+</head>
+<body>
+<div class="container">
+  <div class="welcome">
+    <div class="pinkbox">
+      <div class="signup nodisplay">
+        <h1>register</h1>
+        <form autocomplete="off">
+          <input type="text" placeholder="username">
+          <input type="email" placeholder="email">
+          <input type="password" placeholder="password">
+          <input type="password" placeholder="confirm password">
+          <button class="button submit">create account </button>
+        </form>
+      </div>
+      <div class="signin">
+        <h1>sign in</h1>
+        <form class="more-padding" autocomplete="off">
+          <input type="text" placeholder="username">
+          <input type="password" placeholder="password">
+          <button class="button submit">login</button>
+        </form>
+      </div>
+    </div>
+    <div class="leftbox">
+      <h2 class="title"><span>EchoWorks</span><br>포트폴리오 관리</h2>
+      <p class="desc">단순히 관리하는 공간을 넘어, <br><span>자신의 경험과 성취를 울림처럼 퍼뜨리세요.</span></p>
+      <p class="account">have an account?</p>
+      <button class="button" id="signin">login</button>
+    </div>
+    <div class="rightbox">
+      <h2 class="title"><span>EchoWorks</span><br>포트폴리오 관리</h2>
+      <p class="desc">단순히 관리하는 공간을 넘어, <br><span>자신의 경험과 성취를 울림처럼 퍼뜨리세요.</span></p>
+      <p class="account">don't have an account?</p>
+      <button class="button" id="signup">sign up</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
