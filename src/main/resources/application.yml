@@ -10,6 +10,11 @@ spring:
       ddl-auto: update
     show-sql: true
 
+  security:
+    user:
+      name: test
+      password: 1234
+
   thymeleaf:
     cache: false
     check-template-location: true

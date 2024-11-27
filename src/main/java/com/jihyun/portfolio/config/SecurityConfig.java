@@ -22,10 +22,16 @@ public class SecurityConfig {
                 .usernameParameter("memberEmail")
                 .passwordParameter("password")
                 .permitAll());
-        http.logout(Customizer.withDefaults());
+        http.logout(logout -> logout
+                .logoutUrl("/member/logout")    // 로그아웃 처리 URL
+                .logoutSuccessUrl("/")  // 로그아웃 성공 후 리다이렉트 경로
+                .invalidateHttpSession(true) // 세션 무효화
+                .deleteCookies("JSESSIONID") // 쿠키 삭제
+                .permitAll()
+        );
 
         http.authorizeHttpRequests(request -> request
-                .requestMatchers("/", "/message", "/myProfile", "/myPortfolio").permitAll()
+                .requestMatchers("/", "/member/login", "/member/add", "/message", "/myProfile", "/myPortfolio", "/detail", "/update", "/write", "/totalPortfolio").permitAll()
                 .requestMatchers("/css/**", "/images/**", "/js/**").permitAll()
                 .anyRequest().authenticated()
         );

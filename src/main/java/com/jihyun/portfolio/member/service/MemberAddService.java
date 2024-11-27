@@ -1,5 +1,6 @@
 package com.jihyun.portfolio.member.service;
 
+import com.jihyun.portfolio.member.dto.MemberAddDto;
 import com.jihyun.portfolio.member.entity.Member;
 import com.jihyun.portfolio.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;

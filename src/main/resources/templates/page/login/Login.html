@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>로그인 / 회원가입</title>
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!--css-->
@@ -18,22 +17,41 @@
     <div class="pinkbox">
       <div class="signup nodisplay">
         <h1>register</h1>
-        <form autocomplete="off">
-          <input type="text" placeholder="username">
-          <input type="email" placeholder="email">
-          <input type="password" placeholder="password">
-          <input type="password" placeholder="confirm password">
-          <button class="button submit">create account </button>
+        <form th:action="@{/member/add}" th:object="${memberAddDto}" method="post" autocomplete="off">
+          <div>
+            <input type="text" th:field="*{memberName}" placeholder="이름을 입력하세요." required>
+            <p th:if="${#fields.hasErrors('memberName')}" th:errors="*{memberName}" class="fieldError"></p>
+          </div>
+          <div>
+            <input type="email" th:field="*{memberEmail}" placeholder="이메일을 입력하세요." required>
+            <p th:if="${#fields.hasErrors('memberEmail')}" th:errors="*{memberEmail}" class="fieldError"></p>
+          </div>
+          <div>
+            <input type="password" th:field="*{password}" placeholder="비밀번호를 입력하세요." required>
+            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="fieldError"></p>
+          </div>
+          <!-- CSRF Token -->
+          <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+          <button type="submit" class="button submit">create account</button>
         </form>
       </div>
       <div class="signin">
         <h1>sign in</h1>
-        <form class="more-padding" autocomplete="off">
-          <input type="text" placeholder="username">
-          <input type="password" placeholder="password">
-          <button class="button submit">login</button>
+        <form th:action="@{/member/login}" method="post" th:object="${memberLoginDto}" autocomplete="off">
+          <div>
+            <input type="email" th:field="*{memberEmail}" placeholder="이메일을 입력하세요." required>
+          </div>
+          <div>
+            <input type="password" th:field="*{password}" placeholder="비밀번호를 입력하세요." required>
+          </div>
+          <!-- 로그인 실패 시 에러 메시지 -->
+          <p th:if="${loginErrorMsg}" class="error-msg" th:text="${loginErrorMsg}"></p>
+          <!-- CSRF Token -->
+          <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+          <button type="submit" class="button submit">login</button>
         </form>
       </div>
+
     </div>
     <div class="leftbox">
       <h2 class="title"><span>EchoWorks</span><br>포트폴리오 관리</h2>
