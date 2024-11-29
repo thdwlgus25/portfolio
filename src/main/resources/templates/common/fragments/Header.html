@@ -26,7 +26,9 @@
     </div>
     <div class="menu-profile">
         <span id="welcome-text" class="welcome-message">
-            <i class="fas fa-smile-beam"></i> ___님, 어서오세요!
+            <i class="fas fa-smile-beam"></i>
+            <span th:if="${profile != null}" th:text="${profile.memberName} + '님, 어서오세요!'"></span>
+            <span th:if="${profile == null}">Guest님, 어서오세요!</span>
         </span>
         <button id="menu-button" class="menu-button">
             <i class="fas fa-bars"></i>
