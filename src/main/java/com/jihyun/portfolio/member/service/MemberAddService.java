@@ -1,8 +1,8 @@
 package com.jihyun.portfolio.member.service;
 
-import com.jihyun.portfolio.member.dto.MemberAddDto;
 import com.jihyun.portfolio.member.entity.Member;
 import com.jihyun.portfolio.member.repository.MemberRepository;
+import com.jihyun.portfolio.profile.dto.MyProfileDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -41,6 +41,17 @@ public class MemberAddService implements UserDetailsService {
                 .username(member.getMemberEmail())
                 .password(member.getPassword())
                 .roles(member.getRole().toString())
+                .build();
+    }
+
+    // 사용자 프로필 정보 가져오기 (myProfile)
+    public MyProfileDto getMyProfile(String memberEmail) {
+        Member member = memberRepository.findByMemberEmail(memberEmail)
+                .orElseThrow(() -> new IllegalArgumentException("사용자를 찾을 수 없습니다." + memberEmail));
+
+        return MyProfileDto.builder()
+                .memberName(member.getMemberName())
+                .memberEmail(member.getMemberEmail())
                 .build();
     }
 }

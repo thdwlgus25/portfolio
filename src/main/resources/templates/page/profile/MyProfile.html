@@ -19,12 +19,12 @@
       <h1>개인정보</h1>
       <div class="info-item">
         <div class="info-label">name</div>
-        <div class="info-value">지현 송</div>
+        <div class="info-value" th:text="${profile.memberName}">이름</div>
         <a href="#" class="edit-link" data-type="name">수정</a>
       </div>
       <div class="info-item">
         <div class="info-label">email</div>
-        <div class="info-value">t***@naver.com</div>
+        <div class="info-value" th:text="${profile.memberEmail}">이메일</div>
         <a href="#" class="edit-link" data-type="email">수정</a>
       </div>
       <div class="info-item">
