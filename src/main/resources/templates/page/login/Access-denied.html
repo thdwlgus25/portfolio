@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layouts/DefaultLayout}">
+<head>
+    <meta charset="UTF-8">
+    <title>권한 없음</title>
+    <!-- css-->
+    <link rel="stylesheet" href="/css/login/Access-denied.css">
+</head>
+<body>
+<div layout:fragment="content" class="access-denied-container">
+    <div class="access-denied-box">
+        <h1>🚫 권한 없음</h1>
+        <p>이 페이지는 회원 전용 페이지입니다. <br> 로그인을 해주세요.</p>
+        <a href="/member/login" class="btn-login">로그인 페이지로 이동</a>
+    </div>
+</div>
+</body>
+</html>
