@@ -7,7 +7,7 @@ body {
 
 .profile-container {
     display: flex;
-    gap: 40px; /* 좌우 간격 */
+    gap: 40px;
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
@@ -46,6 +46,24 @@ body {
     text-align: left;
     color: #555;
 }
+
+/* 저장 버튼 */
+.btn-save {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 20px;
+}
+
+.btn-save:hover {
+    background-color: #0056b3;
+}
+
+
 
 .edit-link {
     color: #007bff;

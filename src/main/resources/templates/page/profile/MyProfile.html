@@ -6,6 +6,8 @@
 <head>
   <meta charset="UTF-8">
   <title>My Profile</title>
+  <meta name="_csrf" th:content="${_csrf.token}">
+  <meta name="_csrf_header" th:content="${_csrf.headerName}">
   <!--로그인 css-->
   <link rel="stylesheet" href="/css/profile/MyProfile.css">
   <!--로그인 js-->
@@ -19,27 +21,25 @@
       <h1>개인정보</h1>
       <div class="info-item">
         <div class="info-label">name</div>
-        <div class="info-value" th:text="${profile.memberName}">이름</div>
-        <a href="#" class="edit-link" data-type="name">수정</a>
+        <div class="info-value" th:text="${profile.memberName}">홍길동</div>
       </div>
       <div class="info-item">
         <div class="info-label">email</div>
-        <div class="info-value" th:text="${profile.memberEmail}">이메일</div>
-        <a href="#" class="edit-link" data-type="email">수정</a>
+        <div class="info-value" th:text="${profile.memberEmail}">test@test.com</div>
       </div>
       <div class="info-item">
         <div class="info-label">git address</div>
-        <div class="info-value">제공되지 않음</div>
-        <a href="#" class="edit-link" data-type="git">추가</a>
+        <div class="info-value" th:text="${socialData.github ?: '제공되지 않음'}">제공되지 않음</div>
+        <a href="#" class="edit-link" data-type="github">추가</a>
       </div>
       <div class="info-item">
         <div class="info-label">blog address</div>
-        <div class="info-value">제공되지 않음</div>
+        <div class="info-value" th:text="${socialData.blog ?: '제공되지 않음'}">제공되지 않음</div>
         <a href="#" class="edit-link" data-type="blog">추가</a>
       </div>
       <div class="info-item">
         <div class="info-label">notion address</div>
-        <div class="info-value">제공되지 않음</div>
+        <div class="info-value" th:text="${socialData.notion ?: '제공되지 않음'}">제공되지 않음</div>
         <a href="#" class="edit-link" data-type="notion">추가</a>
       </div>
     </section>
