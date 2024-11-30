@@ -16,7 +16,6 @@ import org.springframework.security.web.SecurityFilterChain;
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-    private final MemberAddService memberAddService;
     private final CustomAuthenticationEntryPoint customAuthenticationEntryPoint;
 
     @Bean
