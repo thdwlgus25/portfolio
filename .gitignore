@@ -38,3 +38,5 @@ out/
 
 ### DATABASE ###
 /src/main/resources/application-db.yml
+
+.DS_Store
