@@ -17,11 +17,12 @@
     <!-- 상단 네비게이션 -->
     <header class="navigation-bar">
         <div class="category-list">
-            <button class="category-button active"><i class="fas fa-paint-brush"></i> 예술</button>
-            <button class="category-button"><i class="fas fa-code"></i> 프로그래밍</button>
-            <button class="category-button"><i class="fas fa-pencil-alt"></i> 로고 디자인</button>
-            <button class="category-button"><i class="fas fa-desktop"></i> 웹 디자인</button>
-            <button class="category-button"><i class="fas fa-utensils"></i> 음식</button>
+        <button th:each="category : ${categories}"
+                class="category-button"
+                th:classappend="${category.categoryName == '예술'} ? 'active' : ''">
+            <i th:class="${category.iconClass}"></i>
+            <span th:text="${category.categoryName}"></span>
+        </button>
         </div>
         <div class="search-bar">
             <input type="text" class="search-input" placeholder="창의적인 포트폴리오를 검색해보세요!">

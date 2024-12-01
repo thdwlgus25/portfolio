@@ -19,4 +19,6 @@ public class Category extends BaseEntity {
     private Long id;
 
     private String categoryName;
+
+    private String iconClass;
 }
