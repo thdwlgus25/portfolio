@@ -35,11 +35,10 @@
       <label for="category">카테고리</label>
       <select id="category" name="category">
         <option value="">카테고리를 선택하세요</option>
-        <option value="backend">백엔드</option>
-        <option value="frontend">프론트엔드</option>
-        <option value="ai">AI</option>
-        <option value="devops">DevOps</option>
-        <option value="database">데이터베이스</option>
+        <option th:each="category : ${categories}"
+                th:value="${category.id}"
+                th:text="${category.categoryName}">
+        </option>
       </select>
     </div>
 

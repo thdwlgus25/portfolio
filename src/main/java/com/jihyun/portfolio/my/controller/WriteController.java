@@ -1,13 +1,22 @@
 package com.jihyun.portfolio.my.controller;
 
+import com.jihyun.portfolio.category.service.CategoryService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
+@RequiredArgsConstructor
 public class WriteController {
 
+    private final CategoryService categoryService;
+
     @GetMapping("/write")
-    public String write() {
+    public String write(Model model) {
+
+        // 카테고리
+        model.addAttribute("categories", categoryService.getAllCategory());
         return "page/my/Write";
     }
 
@@ -17,7 +26,7 @@ public class WriteController {
     }
 
     @GetMapping("/detail")
-    public String datail() {
+    public String detail() {
         return "page/my/Detail";
     }
 
