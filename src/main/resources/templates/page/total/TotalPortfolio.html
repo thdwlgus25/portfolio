@@ -31,73 +31,18 @@
     </header>
 
     <section class="portfolio-grid">
-        <!-- 카드 1 -->
-        <div class="portfolio-card">
+        <div class="portfolio-card" th:each="portfolio : ${portfolios}">
             <img src="/images/image.jpg" alt="프로젝트 썸네일" class="thumbnail">
-            <h2 class="project-title">백엔드 프로젝트</h2>
+            <h2 class="project-title" th:text="${portfolio.title}">프로젝트 제목</h2>
             <p class="project-info">
-                <i class="fas fa-folder"></i> 카테고리: 백엔드
+                <i class="fas fa-folder"></i> 카테고리: <span th:text="${portfolio.categoryName}">카테고리명</span>
             </p>
             <p class="project-info">
-                <i class="fas fa-calendar-alt"></i> 등록 날짜: 2024-01-01
+                <i class="fas fa-calendar-alt"></i> 등록 날짜:
+                <span th:text="${#temporals.format(portfolio.regTime, 'yyyy-MM-dd')}">등록 날짜</span>
             </p>
             <p class="project-info">
-                <i class="fas fa-user"></i> 작성자: 지현 송
-            </p>
-        </div>
-        <!-- 카드 2 -->
-        <div class="portfolio-card">
-            <img src="/images/image.jpg" alt="프로젝트 썸네일" class="thumbnail">
-            <h2 class="project-title">프론트엔드 프로젝트</h2>
-            <p class="project-info">
-                <i class="fas fa-folder"></i> 카테고리: 프론트엔드
-            </p>
-            <p class="project-info">
-                <i class="fas fa-calendar-alt"></i> 등록 날짜: 2023-12-15
-            </p>
-            <p class="project-info">
-                <i class="fas fa-user"></i> 작성자: 지현 송
-            </p>
-        </div>
-        <!-- 카드 3 -->
-        <div class="portfolio-card">
-            <img src="/images/image.jpg" alt="프로젝트 썸네일" class="thumbnail">
-            <h2 class="project-title">AI 기반 프로젝트</h2>
-            <p class="project-info">
-                <i class="fas fa-folder"></i> 카테고리: AI
-            </p>
-            <p class="project-info">
-                <i class="fas fa-calendar-alt"></i> 등록 날짜: 2024-02-01
-            </p>
-            <p class="project-info">
-                <i class="fas fa-user"></i> 작성자: 지현 송
-            </p>
-        </div>
-        <!-- 카드 4 -->
-        <div class="portfolio-card">
-            <img src="/images/image.jpg" alt="프로젝트 썸네일" class="thumbnail">
-            <h2 class="project-title">DevOps 프로젝트</h2>
-            <p class="project-info">
-                <i class="fas fa-folder"></i> 카테고리: DevOps
-            </p>
-            <p class="project-info">
-                <i class="fas fa-calendar-alt"></i> 등록 날짜: 2024-03-01
-            </p>
-            <p class="project-info">
-                <i class="fas fa-user"></i> 작성자: 지현 송
-            </p>
-        </div>
-        <div class="portfolio-card">
-            <img src="/images/image.jpg" alt="프로젝트 썸네일" class="thumbnail">
-            <h2 class="project-title">DevOps 프로젝트</h2>
-            <p class="project-info">
-                <i class="fas fa-folder"></i> 카테고리: DevOps
-            </p>
-            <p class="project-info">
-                <i class="fas fa-calendar-alt"></i> 등록 날짜: 2024-03-01
-            </p>
-            <p class="project-info">
-                <i class="fas fa-user"></i> 작성자: 지현 송
+                <i class="fas fa-user"></i> 작성자: <span th:text="${portfolio.memberName}">작성자명</span>
             </p>
         </div>
     </section>

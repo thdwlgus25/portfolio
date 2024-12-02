@@ -2,6 +2,7 @@ package com.jihyun.portfolio.my.repository;
 
 import com.jihyun.portfolio.my.dto.MyPortfolioDto;
 import com.jihyun.portfolio.my.entity.Portfolio;
+import com.jihyun.portfolio.total.dto.TotalPortfolioDto;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import com.querydsl.core.types.Projections;
@@ -30,6 +31,22 @@ public class PortfolioCustomRepositoryImpl implements PortfolioCustomRepository 
                         ))
                 .from(portfolio)
                 .where(portfolio.member.memberEmail.eq(memberEmail))
+                .orderBy(portfolio.regTime.desc())
+                .fetch();
+    }
+
+    @Override
+    public List<TotalPortfolioDto> findTotalPortfolios() {
+        return jpaQueryFactory
+                .select(Projections.constructor(TotalPortfolioDto.class,
+                        portfolio.title,
+                        category.categoryName,
+                        portfolio.regTime,
+                        member.memberName
+                ))
+                .from(portfolio)
+                .join(portfolio.category, category) // 명시적 join
+                .join(portfolio.member, member)     // 명시적 join
                 .orderBy(portfolio.regTime.desc())
                 .fetch();
     }
