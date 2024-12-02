@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.time.LocalDate;
+
 @Controller
 @RequiredArgsConstructor
 public class WriteController {
@@ -33,6 +35,9 @@ public class WriteController {
         String memberEmail = authentication.getName();
         MyProfileDto profile = memberAddService.getMyProfile(memberEmail);
         model.addAttribute("profile", profile);
+
+        // 오늘 날짜 추가
+        model.addAttribute("today", LocalDate.now().toString());
 
         return "page/my/Write";
     }
