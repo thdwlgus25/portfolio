@@ -20,4 +20,11 @@ public class DetailController {
         model.addAttribute("portfolio", detailDto);
         return "page/my/Detail";
     }
+
+    @GetMapping("/myPortfolio/{seq}")
+    public String getMyPortfolioDetail(@PathVariable Long seq, Model model) {
+        DetailDto detailDto = detailService.getPortfolioDetail(seq);
+        model.addAttribute("portfolio", detailDto);
+        return "page/my/Detail";
+    }
 }

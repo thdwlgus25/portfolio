@@ -12,6 +12,8 @@ import java.time.LocalDateTime;
 @Builder
 public class MyPortfolioDto {
 
+    private Long seq;
+
     private String title;
 
     private String categoryName;

@@ -33,27 +33,32 @@
   </header>
 
   <section class="portfolio-grid">
-    <div class="portfolio-card" th:each="portfolio : ${portfolios}">
-      <img src="/images/image.jpg" alt="프로젝트 썸네일" class="thumbnail">
-      <h2 class="project-title" th:text="${portfolio.title}">프로젝트 제목</h2>
-      <p class="project-info">
-        <i class="fas fa-folder"></i> 카테고리: <span th:text="${portfolio.categoryName}">카테고리명</span>
-      </p>
-      <p class="project-info">
-        <i class="fas fa-calendar-alt"></i> 등록 날짜:
-        <span th:text="${#temporals.format(portfolio.regTime, 'yyyy-MM-dd')}">등록 날짜</span>
-      </p>
-      <p class="project-info">
-        <i class="fas fa-user"></i> 작성자: <span th:text="${portfolio.memberName}">작성자명</span>
-      </p>
-      <div class="action-buttons">
-        <button class="edit-button" onclick="event.stopPropagation(); window.location.href='/update'">
-          <i class="fas fa-edit"></i> 수정
-        </button>
-        <button class="delete-button" onclick="event.stopPropagation(); alert('삭제 버튼이 클릭되었습니다!');">
-          <i class="fas fa-trash-alt"></i> 삭제
-        </button>
-      </div>
+    <div th:each="portfolio : ${portfolios}">
+      <!-- 카드 전체를 클릭 가능한 링크로 변경 -->
+      <a th:href="@{/myPortfolio/{seq}(seq=${portfolio.seq})}" class="portfolio-card-link">
+        <div class="portfolio-card">
+          <img src="/images/image.jpg" alt="프로젝트 썸네일" class="thumbnail">
+          <h2 class="project-title" th:text="${portfolio.title}">프로젝트 제목</h2>
+          <p class="project-info">
+            <i class="fas fa-folder"></i> 카테고리: <span th:text="${portfolio.categoryName}">카테고리명</span>
+          </p>
+          <p class="project-info">
+            <i class="fas fa-calendar-alt"></i> 등록 날짜:
+            <span th:text="${#temporals.format(portfolio.regTime, 'yyyy-MM-dd')}">등록 날짜</span>
+          </p>
+          <p class="project-info">
+            <i class="fas fa-user"></i> 작성자: <span th:text="${portfolio.memberName}">작성자명</span>
+          </p>
+          <div class="action-buttons">
+            <button class="edit-button" onclick="event.stopPropagation(); window.location.href='/update'">
+              <i class="fas fa-edit"></i> 수정
+            </button>
+            <button class="delete-button" onclick="event.stopPropagation(); alert('삭제 버튼이 클릭되었습니다!');">
+              <i class="fas fa-trash-alt"></i> 삭제
+            </button>
+          </div>
+        </div>
+      </a>
     </div>
   </section>
 </div>

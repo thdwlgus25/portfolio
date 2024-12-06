@@ -24,6 +24,7 @@ public class PortfolioCustomRepositoryImpl implements PortfolioCustomRepository 
     public List<MyPortfolioDto> findMyPortfolios(String memberEmail) {
         return jpaQueryFactory
                 .select(Projections.constructor(MyPortfolioDto.class,
+                        portfolio.id,
                         portfolio.title,
                         portfolio.category.categoryName,
                         portfolio.regTime,
