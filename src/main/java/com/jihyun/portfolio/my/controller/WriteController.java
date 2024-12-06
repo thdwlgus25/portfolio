@@ -4,6 +4,7 @@ import com.jihyun.portfolio.category.service.CategoryService;
 import com.jihyun.portfolio.member.service.MemberAddService;
 import com.jihyun.portfolio.my.dto.UpdateDto;
 import com.jihyun.portfolio.my.dto.WriteDto;
+import com.jihyun.portfolio.my.service.DeleteService;
 import com.jihyun.portfolio.my.service.UpdateService;
 import com.jihyun.portfolio.my.service.WriteService;
 import com.jihyun.portfolio.profile.dto.MyProfileDto;
@@ -27,6 +28,7 @@ public class WriteController {
     private final MemberAddService memberAddService;
     private final WriteService writeService;
     private final UpdateService updateService;
+    private final DeleteService deleteService;
 
     @GetMapping("/write")
     public String write(Model model) {
@@ -71,9 +73,10 @@ public class WriteController {
         return "redirect:/myPortfolio";
     }
 
-    @GetMapping("/detail")
-    public String detail() {
-        return "page/my/Detail";
+    @GetMapping("/delete/{seq}")
+    public String deletePortfolio(@PathVariable Long seq) {
+        deleteService.deletePortfolio(seq);
+        return "redirect:/myPortfolio";
     }
 
 }
