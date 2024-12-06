@@ -22,41 +22,41 @@
   <div class="write-header">
     <h1>🛠️ 포트폴리오 수정</h1>
   </div>
-  <form class="write-form">
+  <form class="write-form" th:action="@{/update/{seq}(seq=${portfolio.seq})}" method="post">
     <!-- 제목 -->
     <div class="write-group">
       <label for="title">제목</label>
-      <input type="text" id="title" name="title" value="기존 제목" placeholder="제목을 입력하세요">
+      <input type="text" id="title" name="title" th:value="${portfolio.title}" placeholder="제목을 입력하세요">
     </div>
 
     <!-- 카테고리 -->
     <div class="write-group">
       <label for="category">카테고리</label>
-      <select id="category" name="category">
-        <option value="backend" selected>백엔드</option>
-        <option value="frontend">프론트엔드</option>
-        <option value="ai">AI</option>
-        <option value="devops">DevOps</option>
-        <option value="database">데이터베이스</option>
+      <select id="category" name="categoryName">
+        <option th:each="category : ${categories}"
+                th:value="${category.categoryName}"
+                th:text="${category.categoryName}"
+                th:selected="${category.categoryName == portfolio.categoryName}">
+        </option>
       </select>
     </div>
 
     <!-- 작성자 -->
     <div class="write-group">
       <label for="author">작성자</label>
-      <input type="text" id="author" name="author" value="송지현" readonly>
+      <input type="text" id="author" name="author" th:value="${portfolio.memberName}" readonly>
     </div>
 
     <!-- 작성일 -->
     <div class="write-group">
       <label for="date">작성일자</label>
-      <input type="text" id="date" name="date" value="2024-11-25" readonly>
+      <input type="text" id="date" name="date" th:value="${#temporals.format(portfolio.regTime, 'yyyy-MM-dd')}" readonly>
     </div>
 
     <!-- Summernote -->
     <div class="write-group">
       <label for="summernote">내용</label>
-      <textarea id="summernote" name="content"></textarea>
+      <textarea id="summernote" name="content" th:text="${portfolio.content}"></textarea>
     </div>
 
     <!-- 버튼 컨테이너 -->

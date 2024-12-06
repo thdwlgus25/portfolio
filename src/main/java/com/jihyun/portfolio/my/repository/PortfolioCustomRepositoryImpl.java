@@ -47,8 +47,8 @@ public class PortfolioCustomRepositoryImpl implements PortfolioCustomRepository 
                         member.memberName
                 ))
                 .from(portfolio)
-                .join(portfolio.category, category) // 명시적 join
-                .join(portfolio.member, member)     // 명시적 join
+                .join(portfolio.category, category)
+                .join(portfolio.member, member)
                 .orderBy(portfolio.regTime.desc())
                 .fetch();
     }

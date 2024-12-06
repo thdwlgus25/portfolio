@@ -50,12 +50,15 @@
             <i class="fas fa-user"></i> 작성자: <span th:text="${portfolio.memberName}">작성자명</span>
           </p>
           <div class="action-buttons">
-            <button class="edit-button" onclick="event.stopPropagation(); window.location.href='/update'">
+            <!-- 수정 버튼 -->
+            <a th:href="@{/update/{seq}(seq=${portfolio.seq})}" class="edit-button">
               <i class="fas fa-edit"></i> 수정
-            </button>
-            <button class="delete-button" onclick="event.stopPropagation(); alert('삭제 버튼이 클릭되었습니다!');">
+            </a>
+
+            <!-- 삭제 버튼 -->
+            <a th:href="@{/delete/{seq}(seq=${portfolio.seq})}" class="delete-button" onclick="return confirm('정말 삭제하시겠습니까?')">
               <i class="fas fa-trash-alt"></i> 삭제
-            </button>
+            </a>
           </div>
         </div>
       </a>
