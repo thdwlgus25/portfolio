@@ -13,18 +13,21 @@
 <body>
 <div layout:fragment="content" class="detail-page">
   <div class="detail-header">
-    <h1 class="detail-title">백엔드 프로젝트</h1>
+    <h1 class="detail-title" th:text="${portfolio.title}">프로젝트 제목</h1>
     <div class="detail-meta">
-      <span><i class="fas fa-calendar-alt"></i> 작성일자: 2024-11-25</span>
-      <span><i class="fas fa-user"></i> 작성자: 송지현</span>
-      <span><i class="fas fa-folder"></i> 카테고리: 백엔드</span>
+            <span><i class="fas fa-calendar-alt"></i> 작성일자:
+                <span th:text="${#temporals.format(portfolio.regTime, 'yyyy-MM-dd')}"></span>
+            </span>
+      <span><i class="fas fa-user"></i> 작성자:
+                <span th:text="${portfolio.memberName}"></span>
+            </span>
+      <span><i class="fas fa-folder"></i> 카테고리:
+                <span th:text="${portfolio.categoryName}"></span>
+            </span>
     </div>
   </div>
   <div class="detail-body">
-    <p class="detail-content">
-      이 프로젝트는 백엔드 기술을 활용하여 사용자 친화적인 환경을 제공하는 시스템입니다. 주요 기술 스택은
-      Spring Boot와 MySQL을 포함하며, RESTful API를 통해 효율적인 데이터 처리를 구현했습니다. 추가적으로,
-      프로젝트는 사용자 인증 및 권한 관리를 포함하여 보안에 중점을 두었습니다.
+    <p class="detail-content" th:text="${portfolio.content}">
     </p>
   </div>
 </div>

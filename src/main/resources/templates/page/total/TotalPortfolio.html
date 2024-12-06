@@ -32,6 +32,7 @@
 
     <section class="portfolio-grid">
         <div class="portfolio-card" th:each="portfolio : ${portfolios}">
+            <a th:href="@{'/totalPortfolio/' + ${portfolio.seq}}">
             <img src="/images/image.jpg" alt="프로젝트 썸네일" class="thumbnail">
             <h2 class="project-title" th:text="${portfolio.title}">프로젝트 제목</h2>
             <p class="project-info">
@@ -44,6 +45,7 @@
             <p class="project-info">
                 <i class="fas fa-user"></i> 작성자: <span th:text="${portfolio.memberName}">작성자명</span>
             </p>
+            </a>
         </div>
     </section>
 </div>

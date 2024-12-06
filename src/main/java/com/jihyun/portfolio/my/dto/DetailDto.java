@@ -1,4 +1,4 @@
-package com.jihyun.portfolio.total.dto;
+package com.jihyun.portfolio.my.dto;
 
 import lombok.*;
 
@@ -10,15 +10,19 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class TotalPortfolioDto {
+public class DetailDto {
 
     private Long seq;
 
     private String title;
 
-    private String categoryName;
-
     private LocalDateTime regTime;
 
     private String memberName;
+
+    private String categoryName;
+
+    private String content;
+
+
 }
