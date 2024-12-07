@@ -36,8 +36,8 @@ public class SecurityConfig {
         );
 
         http.authorizeHttpRequests(request -> request
-                .requestMatchers("/", "/member/login", "/member/add","/totalPortfolio", "/Access-denied").permitAll()
-                .requestMatchers("/css/**", "/images/**", "/js/**").permitAll()
+                .requestMatchers("/", "/member/login", "/member/add","/totalPortfolio", "/Access-denied", "/uploadImage", "/write").permitAll()
+                .requestMatchers("/css/**", "/images/**", "/js/**", "/resources/**").permitAll()
                 .anyRequest().authenticated()
         );
 

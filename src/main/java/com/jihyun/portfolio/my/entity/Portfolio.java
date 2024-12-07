@@ -33,5 +33,7 @@ public class Portfolio extends BaseEntity {
     @Lob
     private String content;
 
+    private String imagePath;
+
 
 }

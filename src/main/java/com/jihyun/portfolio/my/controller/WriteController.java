@@ -54,6 +54,8 @@ public class WriteController {
         String plainTextContent = writeDto.getContent().replaceAll("<[^>]*>", ""); // 모든 HTML 태그 제거
         writeDto.setContent(plainTextContent);
 
+        System.out.println("Received WriteDto: " + writeDto);
+
         writeService.savePortfolio(writeDto);
         return "redirect:/myPortfolio"; // 작성 후 리다이렉트
     }

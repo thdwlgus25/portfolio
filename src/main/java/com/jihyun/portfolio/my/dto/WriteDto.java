@@ -15,4 +15,6 @@ public class WriteDto {
     private String content;
 
     private Long categorySeq;
+
+    private String imagePath;
 }

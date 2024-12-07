@@ -17,6 +17,9 @@
   <!-- js-->
   <script type="text/javascript" th:src="@{/js/my/Summernote.js}"></script>
   <script type="text/javascript" th:src="@{/js/my/Write.js}"></script>
+
+  <meta name="_csrf" th:content="${_csrf.token}">
+  <meta name="_csrf_header" th:content="${_csrf.headerName}">
 </head>
 <body>
 <div layout:fragment="content" class="write-page">
@@ -60,6 +63,8 @@
       <textarea id="summernote" name="content"></textarea>
     </div>
 
+    <!-- 숨겨진 필드 추가 -->
+    <input type="hidden" id="imagePath" name="imagePath" value="">
     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
     <!-- 버튼 컨테이너 -->
     <div class="submit-container">
