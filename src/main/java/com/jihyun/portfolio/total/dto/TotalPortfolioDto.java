@@ -21,4 +21,6 @@ public class TotalPortfolioDto {
     private LocalDateTime regTime;
 
     private String memberName;
+
+    private String thumbnail;
 }

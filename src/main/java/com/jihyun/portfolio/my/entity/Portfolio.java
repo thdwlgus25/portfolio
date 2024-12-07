@@ -40,5 +40,6 @@ public class Portfolio extends BaseEntity {
     @Column(name = "image_path")
     private List<String> imagePaths;
 
+    private String thumbnail;
 
 }

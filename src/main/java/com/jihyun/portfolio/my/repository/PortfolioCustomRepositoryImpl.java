@@ -28,7 +28,8 @@ public class PortfolioCustomRepositoryImpl implements PortfolioCustomRepository 
                         portfolio.title,
                         portfolio.category.categoryName,
                         portfolio.regTime,
-                        portfolio.member.memberName
+                        portfolio.member.memberName,
+                        portfolio.thumbnail
                         ))
                 .from(portfolio)
                 .where(portfolio.member.memberEmail.eq(memberEmail))
@@ -44,7 +45,8 @@ public class PortfolioCustomRepositoryImpl implements PortfolioCustomRepository 
                         portfolio.title,
                         category.categoryName,
                         portfolio.regTime,
-                        member.memberName
+                        member.memberName,
+                        portfolio.thumbnail
                 ))
                 .from(portfolio)
                 .join(portfolio.category, category)

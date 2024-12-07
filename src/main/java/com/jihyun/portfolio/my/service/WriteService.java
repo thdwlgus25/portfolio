@@ -34,11 +34,16 @@ public class WriteService {
         Category category = categoryRepository.findById(writeDto.getCategorySeq())
                 .orElseThrow(() -> new IllegalArgumentException("카테고리가 존재하지 않습니다."));
 
+        // 첫 번째 이미지를 썸네일로 설정
+        String thumbnail = (writeDto.getImagePaths() != null && !writeDto.getImagePaths().isEmpty())
+                ? writeDto.getImagePaths().get(0) : null;
+
         // Portfolio 엔티티 생성
         Portfolio portfolio = Portfolio.builder()
                 .title(writeDto.getTitle())
                 .content(writeDto.getContent())
                 .imagePaths(writeDto.getImagePaths())
+                .thumbnail(thumbnail)
                 .member(member)
                 .category(category)
                 .build();

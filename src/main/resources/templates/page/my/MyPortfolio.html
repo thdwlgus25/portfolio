@@ -37,7 +37,7 @@
       <!-- 카드 전체를 클릭 가능한 링크로 변경 -->
       <a th:href="@{/myPortfolio/{seq}(seq=${portfolio.seq})}" class="portfolio-card-link">
         <div class="portfolio-card">
-          <img src="/images/image.jpg" alt="프로젝트 썸네일" class="thumbnail">
+          <img th:src="${portfolio.thumbnail}" alt="프로젝트 썸네일" class="thumbnail">
           <h2 class="project-title" th:text="${portfolio.title}">프로젝트 제목</h2>
           <p class="project-info">
             <i class="fas fa-folder"></i> 카테고리: <span th:text="${portfolio.categoryName}">카테고리명</span>
