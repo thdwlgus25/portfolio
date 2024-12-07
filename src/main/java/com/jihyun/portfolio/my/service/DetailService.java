@@ -23,6 +23,7 @@ public class DetailService {
                 .memberName(portfolio.getMember().getMemberName())
                 .categoryName(portfolio.getCategory().getCategoryName())
                 .content(portfolio.getContent())
+                .imagePath(portfolio.getImagePath())
                 .build();
     }
 }

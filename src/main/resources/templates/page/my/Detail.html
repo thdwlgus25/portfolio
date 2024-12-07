@@ -26,10 +26,15 @@
             </span>
     </div>
   </div>
-  <div class="detail-body">
-    <p class="detail-content" th:text="${portfolio.content}">
-    </p>
-  </div>
+    <div class="detail-body">
+        <!-- 이미지 출력 -->
+        <div class="detail-image">
+            <img th:src="${portfolio.imagePath}" alt="Portfolio Image" style="max-width: 100%; height: auto;">
+        </div>
+        <!-- 내용 출력 -->
+        <p class="detail-content" th:text="${portfolio.content}">
+        </p>
+    </div>
 </div>
 </body>
 </html>

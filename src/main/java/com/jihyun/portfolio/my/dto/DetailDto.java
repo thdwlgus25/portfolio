@@ -24,5 +24,6 @@ public class DetailDto {
 
     private String content;
 
+    private String imagePath;
 
 }
