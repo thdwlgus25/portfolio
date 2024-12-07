@@ -6,6 +6,8 @@ import com.jihyun.portfolio.member.entity.Member;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -33,7 +35,10 @@ public class Portfolio extends BaseEntity {
     @Lob
     private String content;
 
-    private String imagePath;
+    @ElementCollection
+    @CollectionTable(name = "portfolio_image_paths", joinColumns = @JoinColumn(name = "portfolio_id"))
+    @Column(name = "image_path")
+    private List<String> imagePaths;
 
 
 }

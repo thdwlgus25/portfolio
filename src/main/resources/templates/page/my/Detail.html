@@ -28,12 +28,13 @@
   </div>
     <div class="detail-body">
         <!-- 이미지 출력 -->
-        <div class="detail-image">
-            <img th:src="${portfolio.imagePath}" alt="Portfolio Image" style="max-width: 100%; height: auto;">
+        <div class="detail-images">
+            <div th:each="imagePath : ${portfolio.imagePaths}">
+                <img th:src="${imagePath}" alt="Portfolio Image" style="max-width: 100%; height: auto; margin-bottom: 10px;">
+            </div>
         </div>
         <!-- 내용 출력 -->
-        <p class="detail-content" th:text="${portfolio.content}">
-        </p>
+        <p class="detail-content" th:text="${portfolio.content}"></p>
     </div>
 </div>
 </body>

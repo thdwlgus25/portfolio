@@ -2,6 +2,8 @@ package com.jihyun.portfolio.my.dto;
 
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @ToString
@@ -16,5 +18,5 @@ public class WriteDto {
 
     private Long categorySeq;
 
-    private String imagePath;
+    private List<String> imagePaths;
 }

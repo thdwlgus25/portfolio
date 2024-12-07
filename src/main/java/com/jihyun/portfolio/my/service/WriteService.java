@@ -38,7 +38,7 @@ public class WriteService {
         Portfolio portfolio = Portfolio.builder()
                 .title(writeDto.getTitle())
                 .content(writeDto.getContent())
-                .imagePath(writeDto.getImagePath())
+                .imagePaths(writeDto.getImagePaths())
                 .member(member)
                 .category(category)
                 .build();
