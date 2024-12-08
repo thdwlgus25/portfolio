@@ -54,4 +54,13 @@ public class PortfolioCustomRepositoryImpl implements PortfolioCustomRepository 
                 .orderBy(portfolio.regTime.desc())
                 .fetch();
     }
+
+    @Override
+    public List<Portfolio> searchByTitle(String query) {
+        return jpaQueryFactory
+                .selectFrom(portfolio)
+                .where(portfolio.title.containsIgnoreCase(query))
+                .orderBy(portfolio.regTime.desc())
+                .fetch();
+    }
 }

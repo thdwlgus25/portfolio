@@ -16,4 +16,20 @@ public class TotalPortfolioService {
     public List<TotalPortfolioDto> getAllPortfolio() {
         return portfolioRepository.findTotalPortfolios();
     }
+
+    public List<TotalPortfolioDto> searchPortfolios(String query) {
+        return portfolioRepository.searchByTitle(query)
+                .stream()
+                .map(portfolio -> TotalPortfolioDto.builder()
+                        .seq(portfolio.getId())
+                        .title(portfolio.getTitle())
+                        .categoryName(portfolio.getCategory().getCategoryName())
+                        .regTime(portfolio.getRegTime())
+                        .memberName(portfolio.getMember().getMemberName())
+                        .thumbnail(portfolio.getThumbnail())
+                        .build())
+                .toList();
+    }
+
+
 }

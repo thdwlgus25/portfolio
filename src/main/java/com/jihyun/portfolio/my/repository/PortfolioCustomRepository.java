@@ -11,4 +11,6 @@ public interface PortfolioCustomRepository {
     List<MyPortfolioDto> findMyPortfolios(String memberEmail);
 
     List<TotalPortfolioDto> findTotalPortfolios();
+
+    List<Portfolio> searchByTitle(String query);
 }
