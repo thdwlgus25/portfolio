@@ -1,6 +1,7 @@
 package com.jihyun.portfolio.my.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +19,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ImageUploadController {
 
-    private static final String IMAGE_UPLOAD_DIR = "/Users/jihyun/Documents/project/portfolioSave/save";
+    @Value("${file.upload.path}")
+    private String uploadDir;
 
     @PostMapping("/uploadImage")
     @ResponseBody
@@ -31,7 +33,7 @@ public class ImageUploadController {
             }
 
             String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
-            File destinationFile = Paths.get(IMAGE_UPLOAD_DIR, fileName).toFile();
+            File destinationFile = Paths.get(uploadDir, fileName).toFile();
 
             // 디렉토리 확인 및 생성
             if (!destinationFile.getParentFile().exists()) {
