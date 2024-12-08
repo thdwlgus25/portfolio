@@ -3,6 +3,7 @@ package com.jihyun.portfolio.my.repository;
 import com.jihyun.portfolio.my.dto.MyPortfolioDto;
 import com.jihyun.portfolio.my.entity.Portfolio;
 import com.jihyun.portfolio.total.dto.TotalPortfolioDto;
+import com.querydsl.core.BooleanBuilder;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import com.querydsl.core.types.Projections;
@@ -60,6 +61,41 @@ public class PortfolioCustomRepositoryImpl implements PortfolioCustomRepository 
         return jpaQueryFactory
                 .selectFrom(portfolio)
                 .where(portfolio.title.containsIgnoreCase(query))
+                .orderBy(portfolio.regTime.desc())
+                .fetch();
+    }
+
+    @Override
+    public List<Portfolio> findByCategoryName(String categoryName) {
+        BooleanBuilder builder = new BooleanBuilder();
+        if (categoryName != null && !categoryName.isEmpty()) {
+            builder.and(portfolio.category.categoryName.eq(categoryName));
+        }
+
+        return jpaQueryFactory
+                .selectFrom(portfolio)
+                .join(portfolio.category, category)
+                .where(builder)
+                .orderBy(portfolio.regTime.desc())
+                .fetch();
+    }
+
+    @Override
+    public List<Portfolio> searchByTitleAndCategory(String query, String categoryName) {
+        BooleanBuilder builder = new BooleanBuilder();
+
+        if (query != null && !query.isEmpty()) {
+            builder.and(portfolio.title.containsIgnoreCase(query));
+        }
+
+        if (categoryName != null && !categoryName.isEmpty()) {
+            builder.and(portfolio.category.categoryName.eq(categoryName));
+        }
+
+        return jpaQueryFactory
+                .selectFrom(portfolio)
+                .join(portfolio.category, category)
+                .where(builder)
                 .orderBy(portfolio.regTime.desc())
                 .fetch();
     }

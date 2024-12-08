@@ -17,15 +17,26 @@
     <!-- 상단 네비게이션 -->
     <header class="navigation-bar">
         <div class="category-list">
-        <button th:each="category : ${categories}"
-                class="category-button"
-                th:classappend="${category.categoryName == '예술'} ? 'active' : ''">
-            <i th:class="${category.iconClass}"></i>
-            <span th:text="${category.categoryName}"></span>
-        </button>
+            <!-- 전체 버튼 -->
+            <a href="/totalPortfolio"
+               th:classappend="${param.category == null} ? 'active' : ''"
+               class="category-button">
+                <i class="fas fa-globe"></i>
+                <span>전체</span>
+            </a>
+
+            <!-- 카테고리 버튼 -->
+            <a th:each="category : ${categories}"
+               th:href="@{'/totalPortfolio?category=' + ${category.categoryName}}"
+               class="category-button"
+               th:classappend="${param.category == category.categoryName} ? 'active' : ''">
+                <i th:class="${category.iconClass}"></i>
+                <span th:text="${category.categoryName}"></span>
+            </a>
         </div>
         <div class="search-bar">
             <form action="/totalPortfolio" method="get" class="search-form">
+                <input type="hidden" name="category" th:value="${param.category}">
                 <input type="text" name="query" class="search-input" placeholder="창의적인 포트폴리오를 검색해보세요!" th:value="${param.query}">
                 <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
             </form>

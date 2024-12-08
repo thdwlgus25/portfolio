@@ -13,4 +13,10 @@ public interface PortfolioCustomRepository {
     List<TotalPortfolioDto> findTotalPortfolios();
 
     List<Portfolio> searchByTitle(String query);
+
+    List<Portfolio> findByCategoryName(String categoryName);
+
+    List<Portfolio> searchByTitleAndCategory(String query, String category);
 }
+
+

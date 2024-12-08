@@ -31,5 +31,19 @@ public class TotalPortfolioService {
                 .toList();
     }
 
+    public List<TotalPortfolioDto> searchByTitleAndCategory(String query, String categoryName) {
+        return portfolioRepository.searchByTitleAndCategory(query, categoryName)
+                .stream()
+                .map(portfolio -> TotalPortfolioDto.builder()
+                        .seq(portfolio.getId())
+                        .title(portfolio.getTitle())
+                        .categoryName(portfolio.getCategory().getCategoryName())
+                        .regTime(portfolio.getRegTime())
+                        .memberName(portfolio.getMember().getMemberName())
+                        .thumbnail(portfolio.getThumbnail())
+                        .build())
+                .toList();
+    }
+
 
 }

@@ -20,19 +20,24 @@ public class TotalPortfolioController {
     private final TotalPortfolioService totalPortfolioService;
 
     @GetMapping("/totalPortfolio")
-    public String totalPortfolio(@RequestParam(value = "query", required = false) String query, Model model) {
+    public String totalPortfolio(@RequestParam(value = "query", required = false) String query,
+                                 @RequestParam(value = "category", required = false) String categoryName
+                                 ,Model model) {
 
         List<Category> categories = categoryService.getAllCategory();
         model.addAttribute("categories", categories);
 
         List<TotalPortfolioDto> portfolios;
-        if (query != null && !query.isEmpty()) {
-            portfolios = totalPortfolioService.searchPortfolios(query);
+
+        // 포트폴리오 목록
+        if ((query != null && !query.isEmpty()) || (categoryName != null && !categoryName.isEmpty())) {
+            portfolios = totalPortfolioService.searchByTitleAndCategory(query, categoryName);
         } else {
             portfolios = totalPortfolioService.getAllPortfolio();
         }
-        model.addAttribute("portfolios", portfolios);
 
+        model.addAttribute("portfolios", portfolios);
+        model.addAttribute("currentCategory", categoryName);
         return "page/total/TotalPortfolio";
     }
 
