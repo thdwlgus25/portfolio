@@ -16,21 +16,6 @@
   <button class="create-button" onclick="window.location.href='/write'">
     <i class="fas fa-plus"></i> 작성하기
   </button>
-  <!-- 상단 네비게이션 -->
-  <header class="navigation-bar">
-    <div class="category-list">
-      <button th:each="category : ${categories}"
-              class="category-button"
-              th:classappend="${category.categoryName == '예술'} ? 'active' : ''">
-        <i th:class="${category.iconClass}"></i>
-        <span th:text="${category.categoryName}"></span>
-      </button>
-    </div>
-    <div class="search-bar">
-      <input type="text" class="search-input" placeholder="내 포트폴리오를 검색해보세요!">
-      <button class="search-button"><i class="fas fa-search"></i></button>
-    </div>
-  </header>
 
   <section class="portfolio-grid">
     <div th:each="portfolio : ${portfolios}">
