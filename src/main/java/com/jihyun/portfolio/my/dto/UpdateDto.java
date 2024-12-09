@@ -3,6 +3,7 @@ package com.jihyun.portfolio.my.dto;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -23,4 +24,6 @@ public class UpdateDto {
     private String categoryName;
 
     private String content;
+
+    private List<String> imagePaths;
 }

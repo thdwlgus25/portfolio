@@ -35,6 +35,13 @@ public class ImageUploadController {
             String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
             File destinationFile = Paths.get(uploadDir, fileName).toFile();
 
+            // 중복 파일 확인
+            if (destinationFile.exists()) {
+                // 이미 동일한 파일이 존재하면 경로만 추가하고 저장하지 않음
+                uploadedPaths.add("/uploaded-images/" + fileName);
+                continue;
+            }
+
             // 디렉토리 확인 및 생성
             if (!destinationFile.getParentFile().exists()) {
                 destinationFile.getParentFile().mkdirs();
